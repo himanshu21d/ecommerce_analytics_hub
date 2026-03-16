@@ -133,7 +133,7 @@ at the center of every decision.
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/himanshu21d/ecommerce-analytics-hub.git
+git clone https://github.com/himanshu21d/ecommerce_analytics_hub.git
 cd ecommerce-analytics-hub
 
 # Create virtual environment
