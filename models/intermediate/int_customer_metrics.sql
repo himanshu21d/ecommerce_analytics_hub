@@ -23,7 +23,6 @@ customer_orders as (
         sum(total_items)                                as total_items_bought
 
     from orders
-    where order_status = 'delivered'
     group by customer_id
 ),
 
@@ -32,11 +31,11 @@ rfm_scored as (
     select
         *,
         -- recency: higher score = more recent (reverse order)
-        ntile(5) over (order by days_since_last_order desc) as recency_score,
+        ntile(5) over (order by days_since_last_order desc, customer_id) as recency_score,
         -- frequency: higher score = more orders
-        ntile(5) over (order by total_orders)               as frequency_score,
+        ntile(5) over (order by total_orders, customer_id)               as frequency_score,
         -- monetary: higher score = more spend
-        ntile(5) over (order by total_spend)                as monetary_score
+        ntile(5) over (order by total_spend, customer_id)                as monetary_score
     from customer_orders
 ),
 
