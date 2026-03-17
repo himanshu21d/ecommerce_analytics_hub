@@ -15,12 +15,14 @@ An online retailer struggles with:
 **Solution:** Automated analytics platform reducing reporting time from 2 days to 2 minutes.
 
 ## 💡 Solution Architecture
+````
 Raw CSVs → Python Loader → DuckDB → dbt Pipeline → Power BI Dashboard
-│
-┌──────────┼──────────┐
-Staging  Intermediate   Marts
-(4 models) (3 models)  (4 tables)
-Clean     RFM, ABC     Star Schema
+                                          │
+                               ┌──────────┼──────────┐
+                            Staging  Intermediate   Marts
+                           (4 models)  (3 models)  (4 tables)
+                            Clean      RFM, ABC    Star Schema
+````
 
 ## 📊 Key Results
 
